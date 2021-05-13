@@ -17,5 +17,9 @@ Tools
 UI
 - Buttons: https://assetstore.unity.com/packages/essentials/unity-samples-ui-25468
 
+Textures
+- Blue Background: https://www.istockphoto.com/photo/blue-background-gm996078816-269575233
+= Blue Cylinder Prop: https://www.vecteezy.com/photo/1905510-dark-blue-texture
+
 Instructions:
 1) Open Unity Editor
