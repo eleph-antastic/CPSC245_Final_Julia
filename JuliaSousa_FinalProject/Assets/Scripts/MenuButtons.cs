@@ -21,6 +21,11 @@ public class MenuButtons : MonoBehaviour
     //Canvas Menus (Order is: Physical Main Menu, Helmet, Tool, Color)
     public GameObject[] CanvasMenus;
 
+    public string CurrentMenu;
+
+    //Accesses the tool toggler game object so it can turn off the objects and toggle the icon
+    public GameObject ToolToggleSystem;
+
     //
     public void ToggleMenu(string NewMenu)
     {
@@ -36,9 +41,21 @@ public class MenuButtons : MonoBehaviour
             CanvasMenus[i].SetActive(false);
         }
 
+        CurrentMenu = NewMenu;
+
         //Sees which Menu needs to be active and activates it
-        if (NewMenu == "PhysicalMain")
+        if (NewMenu == "Tools")
         {
+            MenuCameras[2].SetActive(true);
+            CanvasMenus[2].SetActive(true);
+        }
+        else
+        {
+            //If we are changing FROM the tools menu (not TO), then we need to hide the tools and display the icon instead
+            ToolToggleSystem.GetComponent<ToolChanger>().HideTools();
+        }
+        if (NewMenu == "PhysicalMain")
+        { 
             MenuCameras[0].SetActive(true);
             CanvasMenus[0].SetActive(true);
         }
@@ -47,17 +64,12 @@ public class MenuButtons : MonoBehaviour
             MenuCameras[1].SetActive(true);
             CanvasMenus[1].SetActive(true);
         }
-        else if(NewMenu == "Tools")
-        {
-            MenuCameras[2].SetActive(true);
-            CanvasMenus[2].SetActive(true);
-        }
         else if(NewMenu == "Color")
         {
             MenuCameras[3].SetActive(true);
             CanvasMenus[3].SetActive(true);
         }
-        else
+        else //if
         {
             //PlaceHolder for the new Menus to be added
         }
