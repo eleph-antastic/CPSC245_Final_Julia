@@ -17,10 +17,10 @@ using UnityEngine.SceneManagement;
 
 public class ColorChanger : MonoBehaviour
 {
-    //Array of Upper Body Materials (Order is: Deafult, Red, Orange, Yellow, Green, Blue, Purple, Pink, Black)
+    //Array of Upper Body Materials (Order is: Default, Red, Orange, Yellow, Green, Blue, Purple, Pink, Black)
     public Material[] UpperBodyMaterials;
 
-    //Array of Lower Body Materials (Order is: Deafult, Red, Orange, Yellow, Green, Blue, Purple, Pink, Black)
+    //Array of Lower Body Materials (Order is: Default, Red, Orange, Yellow, Green, Blue, Purple, Pink, Black)
     public Material[] LowerBodyMaterials;
 
     //Upperbody and Lowerbody of the astronaut to access and change their colors
@@ -34,7 +34,7 @@ public class ColorChanger : MonoBehaviour
         LowerBody.GetComponent<SkinnedMeshRenderer>().material = LowerBodyMaterials[0];
     }
 
-    //Resumes specifically after completing a level
+    //Changes Color based on the Button pressed (String parameter)
     public void ChangeColor(string Color)
     {
         if(Color == "Default")
@@ -82,13 +82,5 @@ public class ColorChanger : MonoBehaviour
             UpperBody.GetComponent<SkinnedMeshRenderer>().material = UpperBodyMaterials[8];
             LowerBody.GetComponent<SkinnedMeshRenderer>().material = LowerBodyMaterials[8];
         }
-    }
-
-
-    //Quits game
-    public void quitButton()
-    {
-        //quits game
-        Application.Quit();
     }
 }
