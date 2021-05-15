@@ -33,6 +33,7 @@ public class MenuButtons : MonoBehaviour
     public Vector3 ColorCameraLocation;
     public Vector3 PersonalMenuLocation;
     public Vector3 PersonalityCameraLocation;
+    public Vector3 OccupationCameraLocation;
 
     //Toggles between Menus based on button clicked
     public void ToggleMenu(string NewMenu)
@@ -81,6 +82,15 @@ public class MenuButtons : MonoBehaviour
         {
             MainCamera.transform.position = PersonalityCameraLocation;
             CanvasMenus[5].SetActive(true);
+        }
+        else if (NewMenu == "Occupation")
+        {
+            MainCamera.transform.position = PersonalityCameraLocation; //same camera location as personality menu
+            CanvasMenus[6].SetActive(true);
+        }
+        else //is End Screen
+        {
+
         }
     }
 }
