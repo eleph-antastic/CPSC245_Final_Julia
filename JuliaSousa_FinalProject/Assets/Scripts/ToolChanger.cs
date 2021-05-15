@@ -21,6 +21,8 @@ public class ToolChanger : MonoBehaviour
 
     public string CurrentTool;
 
+    //import UI to have the image for each tool to display
+
     //Toggles between helmets based on the button pressed
     public void ToggleTools(string NewTool)
     {
@@ -43,13 +45,9 @@ public class ToolChanger : MonoBehaviour
         {
             Tools[2].SetActive(true);
         }
-        else if (NewTool == "Wrench")
+        else //if (NewTool == "Wrench")
         {
             Tools[3].SetActive(true);
-        }
-        else
-        {
-            //PlaceHolder for the new Menus to be added
         }
         CurrentTool = NewTool;
     }
@@ -62,6 +60,22 @@ public class ToolChanger : MonoBehaviour
             Tools[i].SetActive(false);
         }
 
-        //Display the Tool icon
+        //Display the Tool icon for the specific tool active
+        if(CurrentTool == "Crowbar")
+        {
+
+        }
+        else if(CurrentTool == "Hammer")
+        {
+
+        }
+        else if(CurrentTool == "Pipe")
+        {
+
+        }
+        else //is Wrench 
+        {
+
+        }
     }
 }

@@ -15,10 +15,10 @@ using UnityEngine;
 
 public class MenuButtons : MonoBehaviour
 {
-    //Cameras for Menus (Order is: Physical Main Menu, Helmet, Tool, Color)
-    public GameObject[] MenuCameras;
+    //Camera to move between menus
+    public GameObject MainCamera;
 
-    //Canvas Menus (Order is: Physical Main Menu, Helmet, Tool, Color)
+    //Canvas Menus (Order is: Physical Main Menu, Helmet, Tool, Color, Personal Main Menu, Personality, Occupation)
     public GameObject[] CanvasMenus;
 
     public string CurrentMenu;
@@ -26,14 +26,17 @@ public class MenuButtons : MonoBehaviour
     //Accesses the tool toggler game object so it can turn off the objects and toggle the icon
     public GameObject ToolToggleSystem;
 
-    //
+    //Camera locations to toggle between - didn't make an array of these because had some issues with it
+    public Vector3 PhysicalMenuLocation;
+    public Vector3 HelmetCameraLocation;
+    public Vector3 ToolCameraLocation;
+    public Vector3 ColorCameraLocation;
+    public Vector3 PersonalMenuLocation;
+    public Vector3 PersonalityCameraLocation;
+
+    //Toggles between Menus based on button clicked
     public void ToggleMenu(string NewMenu)
     {
-        //Deactivate all Cameras
-        for (int i = 0; i < MenuCameras.Length; i++)
-        {
-            MenuCameras[i].SetActive(false);
-        }
 
         //Deactivate all Canvas Menus
         for (int i = 0; i < CanvasMenus.Length; i++)
@@ -46,7 +49,7 @@ public class MenuButtons : MonoBehaviour
         //Sees which Menu needs to be active and activates it
         if (NewMenu == "Tools")
         {
-            MenuCameras[2].SetActive(true);
+            MainCamera.transform.position = ToolCameraLocation;
             CanvasMenus[2].SetActive(true);
         }
         else
@@ -55,23 +58,29 @@ public class MenuButtons : MonoBehaviour
             ToolToggleSystem.GetComponent<ToolChanger>().HideTools();
         }
         if (NewMenu == "PhysicalMain")
-        { 
-            MenuCameras[0].SetActive(true);
+        {
+            MainCamera.transform.position = PhysicalMenuLocation;
             CanvasMenus[0].SetActive(true);
         }
         else if(NewMenu == "Helmet")
         {
-            MenuCameras[1].SetActive(true);
+            MainCamera.transform.position = HelmetCameraLocation;
             CanvasMenus[1].SetActive(true);
         }
         else if(NewMenu == "Color")
         {
-            MenuCameras[3].SetActive(true);
+            MainCamera.transform.position = ColorCameraLocation;
             CanvasMenus[3].SetActive(true);
         }
-        else //if
+        else if(NewMenu == "PersonalMain")
         {
-            //PlaceHolder for the new Menus to be added
+            MainCamera.transform.position = PersonalMenuLocation;
+            CanvasMenus[4].SetActive(true);
+        }
+        else if (NewMenu == "Personality")
+        {
+            MainCamera.transform.position = PersonalityCameraLocation;
+            CanvasMenus[5].SetActive(true);
         }
     }
 }
