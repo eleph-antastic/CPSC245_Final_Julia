@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /*1.
  * a. Julia Sousa
@@ -33,7 +34,9 @@ public class MenuButtons : MonoBehaviour
     public Vector3 ColorCameraLocation;
     public Vector3 PersonalMenuLocation;
     public Vector3 PersonalityCameraLocation;
-    public Vector3 OccupationCameraLocation;
+    public Vector3 FinalMenuCameraLocation;
+
+    //Astronaut
 
     //Toggles between Menus based on button clicked
     public void ToggleMenu(string NewMenu)
@@ -88,9 +91,21 @@ public class MenuButtons : MonoBehaviour
             MainCamera.transform.position = PersonalityCameraLocation; //same camera location as personality menu
             CanvasMenus[6].SetActive(true);
         }
-        else //is End Screen
+        else if (NewMenu == "EndMenu")
         {
-
+            MainCamera.transform.position = FinalMenuCameraLocation;
+            CanvasMenus[7].SetActive(true);
         }
+    }
+
+    //closes game
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+    //Restarts the customization process
+    public void ResetGame()
+    {
+        SceneManager.LoadScene("CustomizationScreen");
     }
 }

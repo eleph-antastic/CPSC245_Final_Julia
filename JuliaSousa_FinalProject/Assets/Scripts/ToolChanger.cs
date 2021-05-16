@@ -10,9 +10,8 @@ using UnityEngine;
  * e. Final Project - EFPA Customization Screen
  * f. This is my own work. I did not cheat on this assignment.
  * 
- * 2. This script holds all the different materials to be used for changing the astronaut's suit color and changes them when buttons are clicked.
+ * 2. This script holds all the different tools available and activates them when the correct buttons are clicked.
  * */
-
 
 public class ToolChanger : MonoBehaviour
 {
@@ -21,7 +20,7 @@ public class ToolChanger : MonoBehaviour
 
     public string CurrentTool;
 
-    //import UI to have the image for each tool to display
+    public int[] ToolStats = new int[] { 0, 0, 0, 0, 0, 0 }; //Order is: Stamina, Luck, Agility, Intelligence, Charisma, and Stealth
 
     //Toggles between helmets based on the button pressed
     public void ToggleTools(string NewTool)
@@ -36,18 +35,22 @@ public class ToolChanger : MonoBehaviour
         if (NewTool == "Crowbar")
         {
             Tools[0].SetActive(true);
+            ToolStats = new int[] { 0, 0, 1, 0, 0, 0};
         }
         else if (NewTool == "Hammer")
         {
             Tools[1].SetActive(true);
+            ToolStats = new int[] { 1, 0, 0, 0, 0, 0 };
         }
         else if (NewTool == "Pipe")
         {
             Tools[2].SetActive(true);
+            ToolStats = new int[] { 0, 0, 0, 0, 1, 0 };
         }
         else //if (NewTool == "Wrench")
         {
             Tools[3].SetActive(true);
+            ToolStats = new int[] { 0, 0, 0, 1, 0, 0 };
         }
         CurrentTool = NewTool;
     }
@@ -58,24 +61,6 @@ public class ToolChanger : MonoBehaviour
         for (int i = 0; i < Tools.Length; i++)
         {
             Tools[i].SetActive(false);
-        }
-
-        //Display the Tool icon for the specific tool active
-        if(CurrentTool == "Crowbar")
-        {
-
-        }
-        else if(CurrentTool == "Hammer")
-        {
-
-        }
-        else if(CurrentTool == "Pipe")
-        {
-
-        }
-        else //is Wrench 
-        {
-
         }
     }
 }

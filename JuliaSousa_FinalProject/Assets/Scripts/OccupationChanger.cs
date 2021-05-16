@@ -10,40 +10,34 @@ using UnityEngine;
  * e. Final Project - EFPA Customization Screen
  * f. This is my own work. I did not cheat on this assignment.
  * 
- * 2. This script holds all the different cameras and Canvas menus and changes them when buttons are clicked.
+ * 2. This script changes the Occupation stats based on the job/button clicked.
  * */
 
 public class OccupationChanger : MonoBehaviour
 {
-    //Cameras for Menus (Order is: Basic, Bounty Hunter, Chief, Sturdy)
-    public GameObject[] Helmets;
-
     public string CurrentOccupation;
+    public int[] OccupationStats = new int[] { 0, 0, 0, 0, 0, 0}; //Order is: Stamina, Luck, Agility, Intelligence, Charisma, and Stealth
 
-    //Toggles between helmets based on the button pressed
-    public void ToggleHelmets(string NewHelmet)
+    //Toggles between jobs based on the button pressed
+    public void ToggleOccupation(string NewOccupation)
     {
-        //Sees which Menu needs to be active and activates it
-        if (NewHelmet == "Basic")
+        //Sees which Job needs to be active and activates it
+        if (NewOccupation == "Geologist")
         {
-            Helmets[0].SetActive(true);
+            OccupationStats = new int[] { 0, 0, -1, 0, 0, 2};
         }
-        else if (NewHelmet == "Bounty")
+        else if (NewOccupation == "Botanist")
         {
-            Helmets[1].SetActive(true);
+            OccupationStats = new int[] { 2, 0, 0, 0, 0, -1 };
         }
-        else if (NewHelmet == "Chief")
+        else if (NewOccupation == "Manager")
         {
-            Helmets[2].SetActive(true);
+            OccupationStats = new int[] { 0, -1, 0, 0, 2, 0 };
         }
-        else if (NewHelmet == "Sturdy")
+        else //if (NewOccupation == "Mechanic")
         {
-            Helmets[3].SetActive(true);
+            OccupationStats = new int[] { 0, 0, 0, 2, -1, 0 };
         }
-        else
-        {
-            //PlaceHolder for the new Menus to be added
-        }
-        CurrentHelmet = NewHelmet;
+        CurrentOccupation = NewOccupation;
     }
 }
