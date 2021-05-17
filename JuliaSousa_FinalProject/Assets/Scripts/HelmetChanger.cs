@@ -20,7 +20,8 @@ public class HelmetChanger : MonoBehaviour
     public GameObject[] Helmets;
 
     public string CurrentHelmet;
-    public int[] HelmetStats = new int[] { 0, 0, 0, 0, 0, 0 }; //Order is: Stamina, Luck, Agility, Intelligence, Charisma, and Stealth
+
+    public GameObject StatsController;
 
     //Toggles between helmets based on the button pressed
     public void ToggleHelmets(string NewHelmet)
@@ -31,27 +32,28 @@ public class HelmetChanger : MonoBehaviour
             Helmets[i].SetActive(false);
         }
 
-        //Sees which Menu needs to be active and activates it
+        //Sees which helmet needs to be active and activates it
         if (NewHelmet == "Basic")
         {
             Helmets[0].SetActive(true);
-            HelmetStats = new int[] { 1, 1, 1, 1, 1, 1 };
+            StatsController.GetComponent<StatsManager>().HelmetStats = new int[] { 1, 1, 1, 1, 1, 1 };
         }
         else if (NewHelmet == "Bounty")
         {
             Helmets[1].SetActive(true);
-            HelmetStats = new int[] { 1, 2, 0, 1, -3, 1 };
+            StatsController.GetComponent<StatsManager>().HelmetStats = new int[] { 1, 2, 0, 1, -3, 1 };
         }
         else if (NewHelmet == "Chief")
         {
             Helmets[2].SetActive(true);
-            HelmetStats = new int[] { 1, 1, 1, 1, 5, 1};
+            StatsController.GetComponent<StatsManager>().HelmetStats = new int[] { 1, 1, 1, 1, 5, 1};
         }
         else //if (NewHelmet == "Sturdy")
         {
             Helmets[3].SetActive(true);
-            HelmetStats = new int[] { -2, 4, -1, 2, 0, 3 };
+            StatsController.GetComponent<StatsManager>().HelmetStats = new int[] { -2, 4, -1, 2, 0, 3 };
         }
         CurrentHelmet = NewHelmet;
+        StatsController.GetComponent<StatsManager>().UpdateDisplays();
     }
 }

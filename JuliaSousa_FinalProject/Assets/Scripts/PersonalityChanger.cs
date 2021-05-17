@@ -16,7 +16,7 @@ using UnityEngine;
 public class PersonalityChanger : MonoBehaviour
 {
     public string CurrentPersonality;
-    public int[] PersonalityStats = new int[] { 0, 0, 0, 0, 0, 0 }; //Order is: Stamina, Luck, Agility, Intelligence, Charisma, and Stealth
+    public GameObject StatsController;
 
     //Toggles between personalities based on the button pressed
     public void TogglePersonality(string NewPersonality)
@@ -24,28 +24,29 @@ public class PersonalityChanger : MonoBehaviour
         //Sees which Job needs to be active and activates it
         if (NewPersonality == "Active")
         {
-            PersonalityStats = new int[] { 2, 0, 0, 0, 0, 0 };
+            StatsController.GetComponent<StatsManager>().PersonalityStats = new int[] { 2, 0, 0, 0, 0, 0 };
         }
         else if (NewPersonality == "Lucky")
         {
-            PersonalityStats = new int[] { 0, 2, 0, 0, 0, 0 };
+            StatsController.GetComponent<StatsManager>().PersonalityStats = new int[] { 0, 2, 0, 0, 0, 0 };
         }
         else if (NewPersonality == "Hasty")
         {
-            PersonalityStats = new int[] { 0, 0, 2, 0, 0, 0 };
+            StatsController.GetComponent<StatsManager>().PersonalityStats = new int[] { 0, 0, 2, 0, 0, 0 };
         }
         else if (NewPersonality == "Intellectual")
         {
-            PersonalityStats = new int[] { 0, 0, 0, 2, 0, 0 };
+            StatsController.GetComponent<StatsManager>().PersonalityStats = new int[] { 0, 0, 0, 2, 0, 0 };
         }
         else if (NewPersonality == "Outgoing")
         {
-            PersonalityStats = new int[] { 0, 0, 0, 0, 2, 0 };
+            StatsController.GetComponent<StatsManager>().PersonalityStats = new int[] { 0, 0, 0, 0, 2, 0 };
         }
         else //if (NewPersonality == "Cautious")
         {
-            PersonalityStats = new int[] { 0, 0, 0, 0, 0, 2};
+            StatsController.GetComponent<StatsManager>().PersonalityStats = new int[] { 0, 0, 0, 0, 0, 2};
         }
         CurrentPersonality = NewPersonality;
+        StatsController.GetComponent<StatsManager>().UpdateDisplays();
     }
 }

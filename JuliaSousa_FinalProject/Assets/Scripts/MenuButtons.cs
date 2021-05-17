@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 /*1.
  * a. Julia Sousa
@@ -26,6 +27,8 @@ public class MenuButtons : MonoBehaviour
 
     //Accesses the tool toggler game object so it can turn off the objects and toggle the icon
     public GameObject ToolToggleSystem;
+    //Displays an X when no tool has been chosen
+    public Sprite NoIcon;
 
     //Camera locations to toggle between - didn't make an array of these because had some issues with it
     public Vector3 PhysicalMenuLocation;
@@ -36,7 +39,13 @@ public class MenuButtons : MonoBehaviour
     public Vector3 PersonalityCameraLocation;
     public Vector3 FinalMenuCameraLocation;
 
-    //Astronaut
+    //Stats Controller
+    public GameObject StatsController;
+
+    private void Start()
+    {
+        ToolToggleSystem.GetComponent<ToolChanger>().UpdateToolIcons(NoIcon);
+    }
 
     //Toggles between Menus based on button clicked
     public void ToggleMenu(string NewMenu)
@@ -55,6 +64,9 @@ public class MenuButtons : MonoBehaviour
         {
             MainCamera.transform.position = ToolCameraLocation;
             CanvasMenus[2].SetActive(true);
+            StatsController.GetComponent<StatsManager>().StatsDisplayBottomLeft.SetActive(true);
+            StatsController.GetComponent<StatsManager>().StatsDisplayLeft.SetActive(false);
+            StatsController.GetComponent<StatsManager>().StatsDisplayRight.SetActive(false);
         }
         else
         {
@@ -65,36 +77,57 @@ public class MenuButtons : MonoBehaviour
         {
             MainCamera.transform.position = PhysicalMenuLocation;
             CanvasMenus[0].SetActive(true);
+            StatsController.GetComponent<StatsManager>().StatsDisplayBottomLeft.SetActive(false);
+            StatsController.GetComponent<StatsManager>().StatsDisplayLeft.SetActive(false);
+            StatsController.GetComponent<StatsManager>().StatsDisplayRight.SetActive(true);
         }
         else if(NewMenu == "Helmet")
         {
             MainCamera.transform.position = HelmetCameraLocation;
             CanvasMenus[1].SetActive(true);
+            StatsController.GetComponent<StatsManager>().StatsDisplayBottomLeft.SetActive(false);
+            StatsController.GetComponent<StatsManager>().StatsDisplayLeft.SetActive(false);
+            StatsController.GetComponent<StatsManager>().StatsDisplayRight.SetActive(true);
         }
         else if(NewMenu == "Color")
         {
             MainCamera.transform.position = ColorCameraLocation;
             CanvasMenus[3].SetActive(true);
+            StatsController.GetComponent<StatsManager>().StatsDisplayBottomLeft.SetActive(false);
+            StatsController.GetComponent<StatsManager>().StatsDisplayLeft.SetActive(false);
+            StatsController.GetComponent<StatsManager>().StatsDisplayRight.SetActive(false);
         }
         else if(NewMenu == "PersonalMain")
         {
             MainCamera.transform.position = PersonalMenuLocation;
             CanvasMenus[4].SetActive(true);
+            StatsController.GetComponent<StatsManager>().StatsDisplayBottomLeft.SetActive(false);
+            StatsController.GetComponent<StatsManager>().StatsDisplayLeft.SetActive(true);
+            StatsController.GetComponent<StatsManager>().StatsDisplayRight.SetActive(false);
         }
         else if (NewMenu == "Personality")
         {
             MainCamera.transform.position = PersonalityCameraLocation;
             CanvasMenus[5].SetActive(true);
+            StatsController.GetComponent<StatsManager>().StatsDisplayBottomLeft.SetActive(true);
+            StatsController.GetComponent<StatsManager>().StatsDisplayLeft.SetActive(false);
+            StatsController.GetComponent<StatsManager>().StatsDisplayRight.SetActive(false);
         }
         else if (NewMenu == "Occupation")
         {
             MainCamera.transform.position = PersonalityCameraLocation; //same camera location as personality menu
             CanvasMenus[6].SetActive(true);
+            StatsController.GetComponent<StatsManager>().StatsDisplayBottomLeft.SetActive(false);
+            StatsController.GetComponent<StatsManager>().StatsDisplayLeft.SetActive(false);
+            StatsController.GetComponent<StatsManager>().StatsDisplayRight.SetActive(true);
         }
         else if (NewMenu == "EndMenu")
         {
             MainCamera.transform.position = FinalMenuCameraLocation;
             CanvasMenus[7].SetActive(true);
+            StatsController.GetComponent<StatsManager>().StatsDisplayBottomLeft.SetActive(false);
+            StatsController.GetComponent<StatsManager>().StatsDisplayLeft.SetActive(false);
+            StatsController.GetComponent<StatsManager>().StatsDisplayRight.SetActive(true);
         }
     }
 

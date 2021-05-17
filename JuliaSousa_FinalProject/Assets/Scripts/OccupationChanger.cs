@@ -16,7 +16,7 @@ using UnityEngine;
 public class OccupationChanger : MonoBehaviour
 {
     public string CurrentOccupation;
-    public int[] OccupationStats = new int[] { 0, 0, 0, 0, 0, 0}; //Order is: Stamina, Luck, Agility, Intelligence, Charisma, and Stealth
+    public GameObject StatsController;
 
     //Toggles between jobs based on the button pressed
     public void ToggleOccupation(string NewOccupation)
@@ -24,20 +24,21 @@ public class OccupationChanger : MonoBehaviour
         //Sees which Job needs to be active and activates it
         if (NewOccupation == "Geologist")
         {
-            OccupationStats = new int[] { 0, 0, -1, 0, 0, 2};
+            StatsController.GetComponent<StatsManager>().OccupationStats = new int[] { 0, 0, -1, 0, 0, 2};
         }
         else if (NewOccupation == "Botanist")
         {
-            OccupationStats = new int[] { 2, 0, 0, 0, 0, -1 };
+            StatsController.GetComponent<StatsManager>().OccupationStats = new int[] { 2, 0, 0, 0, 0, -1 };
         }
         else if (NewOccupation == "Manager")
         {
-            OccupationStats = new int[] { 0, -1, 0, 0, 2, 0 };
+            StatsController.GetComponent<StatsManager>().OccupationStats = new int[] { 0, -1, 0, 0, 2, 0 };
         }
         else //if (NewOccupation == "Mechanic")
         {
-            OccupationStats = new int[] { 0, 0, 0, 2, -1, 0 };
+            StatsController.GetComponent<StatsManager>().OccupationStats = new int[] { 0, 0, 0, 2, -1, 0 };
         }
         CurrentOccupation = NewOccupation;
+        StatsController.GetComponent<StatsManager>().UpdateDisplays();
     }
 }
