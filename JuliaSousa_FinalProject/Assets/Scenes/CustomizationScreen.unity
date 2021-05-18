@@ -1438,7 +1438,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &256436386
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1760,7 +1760,7 @@ Transform:
   - {fileID: 515835816}
   - {fileID: 2061600730}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &352958275 stripped
 GameObject:
@@ -3260,7 +3260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &731893821
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7013,7 +7013,7 @@ Transform:
   - {fileID: 1816510798}
   - {fileID: 705507995}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1377832532
 GameObject:
@@ -7095,7 +7095,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1384854814
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7754,7 +7754,7 @@ MonoBehaviour:
   HelmetCameraLocation: {x: -0.225, y: 1.762, z: -4.355}
   ToolCameraLocation: {x: -1.161, y: 1.308, z: -4.19}
   ColorCameraLocation: {x: -0.237, y: 1.295, z: -4.418}
-  PersonalMenuLocation: {x: -0.6, y: 1.41, z: -4.99}
+  PersonalMenuLocation: {x: -0.293, y: 1.497, z: -4.873}
   PersonalityCameraLocation: {x: -0.293, y: 1.497, z: -4.873}
   FinalMenuCameraLocation: {x: -0.226, y: 1.504, z: -5.121}
   StatsController: {fileID: 1994913263}
@@ -10047,7 +10047,7 @@ RectTransform:
   - {fileID: 2130694023}
   - {fileID: 1593728988}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -10809,7 +10809,7 @@ PrefabInstance:
     - target: {fileID: 780876567827374516, guid: 3ffa83a5bbb348a4aae681d2ca5ef62a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 780876567827374516, guid: 3ffa83a5bbb348a4aae681d2ca5ef62a,
         type: 3}
